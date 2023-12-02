@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: churnmodelling
+spec:
+  selector:
+    matchLabels:
+      app: churnmodelling
+  template:
+    metadata:
+      labels:
+        app: churnmodelling
+    spec:
+      containers:
+      - name: chrunmodelling
+        image: srisoudamini/churnmodelling
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 9696

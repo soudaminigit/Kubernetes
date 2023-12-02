@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salary-regression
+spec:
+  selector:
+    matchLabels:
+      app: salary-regression
+  template:
+    metadata:
+      labels:
+        app: salary-regression
+    spec:
+      containers:
+      - name: salaryregression
+        image: srisoudamini/salary-regression
+        ports:
+        - containerPort: 5000
+
