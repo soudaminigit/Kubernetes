@@ -1,0 +1,13 @@
+minikube start
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+minikube service fastapi-service
+<InternalIP>/docs
+In postman,
+POST http://127.0.0.1:<Port_No>/predict
+Body {"sqft": 1000, "bedrooms": 3, "age": 5}
+
+Debugging
+kubectl logs <pod-name>
+kubectl logs <deployment-name>
+kubectl describe pod <pod-name>
