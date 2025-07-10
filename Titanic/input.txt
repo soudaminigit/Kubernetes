@@ -1,0 +1,18 @@
+docker tag docker-api srisoudamini/docker-api
+docker push srisoudamini/docker-api
+update the docker login in deployment.yaml
+check for the proper image name in deployment
+kubectl apply -f deployment.yaml
+check the service is running using kubectl get pods
+kubectl apply -f service.yaml
+Now check the port no, add that to request and send POST command like below
+
+http://localhost:54136/predict
+{
+  "Pclass": 3,
+  "Sex": 1,
+  "Age": 22,
+  "SibSp": 1,
+  "Parch": 0,
+  "Fare": 7.25
+}

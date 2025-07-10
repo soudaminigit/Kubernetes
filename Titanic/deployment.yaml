@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: titanic-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: titanic-api
+  template:
+    metadata:
+      labels:
+        app: titanic-api
+    spec:
+      containers:
+        - name: titanic-api
+          image: srisoudamini/titanic-api  # Change this to your actual image
+          ports:
+            - containerPort: 8000
+
