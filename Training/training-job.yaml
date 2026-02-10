@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ml-training-job
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      containers:
+      - name: trainer
+        image: srisoudamini/ml-train:1.0
+        volumeMounts:
+        - mountPath: /models
+          name: model-volume
+      restartPolicy: Never
+      volumes:
+      - name: model-volume
+        persistentVolumeClaim:
+          claimName: model-pvc
